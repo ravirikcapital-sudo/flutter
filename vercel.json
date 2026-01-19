@@ -1,11 +1,27 @@
 {
-  "outputDirectory": "build/web",
-  "routes": [
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "/manifest.json", "dest": "/manifest.json" },
-    { "src": "/main.dart.js", "dest": "/main.dart.js" },
-    { "src": "/flutter.js", "dest": "/flutter.js" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "build/web/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/assets/(.*)",
+      "destination": "/build/web/assets/$1"
+    },
+    {
+      "source": "/icons/(.*)",
+      "destination": "/build/web/icons/$1"
+    },
+    {
+      "source": "/(flutter.js|main.dart.js|version.json|canvaskit.*|assets/.*)",
+      "destination": "/build/web/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/build/web/index.html"
+    }
   ]
 }
