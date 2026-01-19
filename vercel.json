@@ -8,15 +8,7 @@
   ],
   "rewrites": [
     {
-      "source": "/assets/(.*)",
-      "destination": "/build/web/assets/$1"
-    },
-    {
-      "source": "/icons/(.*)",
-      "destination": "/build/web/icons/$1"
-    },
-    {
-      "source": "/(flutter.js|main.dart.js|version.json|canvaskit.*|assets/.*)",
+      "source": "/(manifest.json|flutter_service_worker.js|flutter_bootstrap.js|version.json|main.dart.js|flutter.js|canvaskit.*|assets/.*|icons/.*)",
       "destination": "/build/web/$1"
     },
     {
@@ -25,3 +17,4 @@
     }
   ]
 }
+
